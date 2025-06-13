@@ -24,7 +24,7 @@ env = Env()
 env.read_env()
 
 
-GROQ_API_KEY = env.str("GROQ_API_KEY", default=None)
+GROQ_API_KEY = st.secrets['GROQ_API_KEY']
 if not GROQ_API_KEY:
     raise ValueError("GROQ_API_KEY não encontrado no .env")
 _ = Groq(api_key=GROQ_API_KEY)
